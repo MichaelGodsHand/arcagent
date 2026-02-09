@@ -1030,6 +1030,13 @@ Return ONLY the JSON object, no additional text or markdown."""
             detail=f"Error verifying claim: {str(e)}"
         )
 
+@app.head("/health")
+async def health():
+    """
+    Health check endpoint
+    """
+    return {"status": "ok"}
+
 @app.get("/")
 async def root():
     """
